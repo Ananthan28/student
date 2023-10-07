@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 
 app.use('/students',StudentRouter)
 app.listen(port,()=>{
-    console.log(`app listening to port ${port}`)
+    console.log(`app       listening to port ${port}`)
 })
 mongoose.connect(`mongodb+srv://Ananthan:ananthan2160@cluster0.r4akhnz.mongodb.net/?retryWrites=true&w=majority`,{
 })
