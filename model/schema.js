@@ -26,6 +26,10 @@ const StudentSchema = new Schema(
             type: Number,
             required: true,
           }, 
+        Place : {
+            type: String,
+            required: true,
+          }, 
       }
       
   );
