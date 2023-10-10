@@ -1,17 +1,20 @@
 const express=require('express');
-const mongoose=require('mongoose');
+const dotenv = require('dotenv');
 
 const app= express();
-const port=4000;
+const connect=require('./mongodb/config');
 const bodyParser = require('body-parser')
 const StudentRouter=require('./router/router')
 app.use(bodyParser.json())
 
 app.use('/students',StudentRouter)
-app.listen(port,()=>{
-    console.log(`app       listening to port ${port}`)
+dotenv.config();
+const PORT=process.env.PORT;
+connect();
+app.listen(PORT,()=>{
+    console.log(`server started at ${PORT}`)
 })
-mongoose.connect(`mongodb+srv://Ananthan:ananthan2160@cluster0.r4akhnz.mongodb.net/?retryWrites=true&w=majority`,{
-})
-.then (()=> console.log("Mongoose connected"))
-.catch((err)=> console.log("err"))
+// mongoose.connect(`mongodb+srv://Ananthan:ananthan2160@cluster0.r4akhnz.mongodb.net/?retryWrites=true&w=majority`,{
+// })
+// .then (()=> console.log("Mongoose connected"))
+// .catch((err)=> console.log("err"))
